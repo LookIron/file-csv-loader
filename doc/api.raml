@@ -1,0 +1,67 @@
+#%RAML 1.0
+title: File csv loader API
+description: APIs to provide an endpoint to load a csv file
+mediaType: application/json
+
+/file/upload/{provider}:
+  description: Load a csv with all orders of a provider
+  post:
+    description:Load a csv with all orders of a providerh `provider = {provider}`
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Data has been successfully loaded from MOCK_DATA (3).csv",
+                "data": {
+                  "message": "Some of your stored data",
+                  "orders": [
+                    {
+                      "creation_date": "2021-01-18T05:00:00.000Z",
+                      "update_date": "2020-12-05T05:00:00.000Z",
+                      "_id": "607b6e81a76c7e014ce2bc1d",
+                      "uuid": "fa04fa30-bb9a-42d5-8c92-5a1a0509c46c",
+                      "vin": "JN1CV6EK7DM531788",
+                      "make": "Mazda",
+                      "model": "MX-5",
+                      "mileage": 1,
+                      "price": 368254184.24,
+                      "provider": "CompanyA"
+                    },
+                    {
+                      "creation_date": "2020-12-29T05:00:00.000Z",
+                      "update_date": "2020-07-29T05:00:00.000Z",
+                      "_id": "607b6e81a76c7e014ce2bc1e",
+                      "uuid": "80cd2e8e-539e-47f2-8403-52b2d088c763",
+                      "vin": "1GYEK63N04R721697",
+                      "make": "Ford",
+                      "model": "Taurus",
+                      "mileage": 2,
+                      "price": 178174615.18,
+                      "provider": "CompanyA"
+                    },
+                    {
+                      "creation_date": "2020-08-09T05:00:00.000Z",
+                      "update_date": "2020-06-28T05:00:00.000Z",
+                      "_id": "607b6e81a76c7e014ce2bc1f",
+                      "uuid": "574101f9-0c46-4964-a63f-bd4ed60f6e09",
+                      "vin": "JH4NA216X4T384924",
+                      "make": "Mercury",
+                      "model": "Topaz",
+                      "mileage": 3,
+                      "price": 735389300.43,
+                      "provider": "CompanyA"
+                    },
+                  ]
+                }
+              }
+      500:
+        body:
+          application/json:
+            example: |
+              {
+                "error": {
+                  "message": "Fail storage data in databse"
+                }
+              }

@@ -1,0 +1,38 @@
+{
+  "name": "file-csv-loader",
+  "version": "1.0.0",
+  "description": "APIs to provide an endpoint to load a csv file",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles --verbose --coverage"
+  },
+  "keywords": [
+    "file",
+    "loader",
+    "csv",
+    "proccess",
+    "data"
+  ],
+  "author": "Esteban Camacho",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fast-csv": "^4.3.6",
+    "mongodb-memory-server": "^6.9.6",
+    "mongoose": "^5.12.4",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "raml2html": "^7.8.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "statements": 60
+      }
+    }
+  }
+}
