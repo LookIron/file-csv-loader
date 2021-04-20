@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const serverDB = require("mongodb-memory-server");
+const { MongoMemoryServer }  = require("mongodb-memory-server");
 
-const mongoServer = new serverDB.MongoMemoryServer();
+const mongoServer = new MongoMemoryServer();
 
  const dbConnect = async () =>{
      try {
