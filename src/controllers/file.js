@@ -1,10 +1,12 @@
 const { response, request } = require('express');
 const csvtojson = require('csvtojson')
+const { dbConnect, dbDisconnect} = require('../../config/db')
 const Product = require('../models/product');
 
 const uploadCSVFile = async (req = request, res = response) => {
     const { provider } = req.params;
     try {
+
         if (req.file == undefined || !provider || provider.trim() === '') {
             throw "Please, provide the file";
         }
@@ -25,9 +27,10 @@ const uploadCSVFile = async (req = request, res = response) => {
             } else {
                 throw "Fail storage data in databse";
             }
+        }else{
+            throw "Fail storage data in databse";
         }
     } catch (error) {
-        console.log(error)
         return res.status(400).json({
             error:{ 
                 message: `Fail proccesing request`,
